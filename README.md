@@ -50,16 +50,22 @@ Bagging Classifier é usado em modelos onde existe uma alta variância e baixo v
 
 O método ensemble pode ser criado usando vários estimadores que podem ser treinados usando diferentes técnicas de amostragem:
  **pasting:** amostras extraídas sem amostragem.
+ 
  **bagging or bootstrap aggregation:** amostras extraídas com substituição.
+ 
  **random subspaces:** características aleatórias são extraídas.
+ 
  **random patches:** amostras e recursos aleatórios são desenhados.
 
 Bagging classifier helps reduce the variance of unstable classifiers (having high variance). The unstable classifiers include classifiers trained using algorithms such as decision tree which is found to have high variance and low bias.
 
 The ensemble classifier which is created using multiple estimators which can be trained using different sampling techniques including :
 **pasting:** (samples drawn without sampling), 
+
 **bagging or bootstrap aggregation:** (samples drawn with replacement),
+
 **random subspaces:** (random features are drawn), 
+
 **random patches:** (random samples & features are drawn).
 
 Variancia e vies : https://vitalflux.com/bias-variance-concepts-interview-questions/
