@@ -13,14 +13,19 @@ This algorithm encompasses several works from the literature. When random subset
 ![image](https://user-images.githubusercontent.com/87387315/165098797-255cd282-c3e3-40fb-8db0-dacb678fdddb.png)
 
   a.-Os conjuntos de dados de treinamento consistem em amostras de dados representadas usando cores diferentes.
+  
   b.-Amostras aleatórias são retiradas com reposição. Isso significa essencialmente que pode haver dados duplicados em cada uma das amostras.
+  
   c.-Cada amostra é usada para treinar diferentes estimadores (regressores) / classificadores representados usando classificador 1, classificador 2, …, classificador n
+  
   d.-É criado um classificador/regressor ensemble que pega as previsões de diferentes classificadores/regressores e faz a previsão final com base na votação ou na média, respectivamente.
+  
   e.-O desempenho do classificador ensemble é testado usando o conjunto de dados de treinamento.
 
 ### Parameters : 
 base_estimator : default = None
 O estimador de base para treinar em subconjuntos aleatórios do conjunto de dados. Em caso de não ser especificado None, o estimador base é o DecisionTreeClassifier.
+
 The base estimator to fit on random subsets of the dataset. If None, then the base estimator is a DecisionTreeClassifier.
 
 n_estimators: int, default=10
@@ -37,12 +42,17 @@ http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassif
 
 ### Beneficios do Bagging? / Bagging classifier Help
 Ajuda a **reduzir a variância de estimadores individuais**, introduzindo a randomização no estágio de treinamento de cada um dos estimadores e fazendo um conjunto de todos os estimadores.
+
 Helps reducing the variance of individual estimators by introducing randomization into the training stage of each of the estimators and making an ensemble out of all the estimators.
 
 ### Quando usar Bagging Classifier? / When to use Bagging Classifier?
 Bagging Classifier é usado em modelos onde existe uma alta variância e baixo vies, conseguindo um alto beneficio em modelos de árvores de decisão, modelos lineares de baixa variância podem não se beneficiar muito com o uso de esta técnica. 
+
 Bagging classifier helps reduce the variance of unstable classifiers (having high variance). The unstable classifiers include classifiers trained using algorithms such as decision tree which is found to have high variance and low bias.
+
 Variancia e vies : https://vitalflux.com/bias-variance-concepts-interview-questions/
+
+![image](https://user-images.githubusercontent.com/87387315/165101994-92be56ac-d761-422f-8375-615cb3b8e982.png)
 
 ### Example
 
