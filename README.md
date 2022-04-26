@@ -137,3 +137,6 @@ It is evident that a more random process also has its pros and cons, its positiv
 
 In the case of ExtraTrees, then, pre-processing becomes even more important. Where, eventually, a selection of variables is made, eliminating unwanted ones, which only add noise and do not help classify the data.
 
+![image](https://user-images.githubusercontent.com/87387315/165319217-676398d7-7976-4ce9-b666-f0315b987f03.png)
+
+
