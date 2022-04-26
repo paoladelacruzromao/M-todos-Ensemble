@@ -77,7 +77,7 @@ Variancia e vies : https://vitalflux.com/bias-variance-concepts-interview-questi
 **BaggingClassifier.ipynb**
 
 
-## 2.- Bagging Extremely Randomized Trees (ExtraTrees)
+## 2.- Extremely Randomized Trees (ExtraTrees)
 
 Essa classe implementa um meta estimador que ajusta várias árvores de decisão aleatórias (também conhecidas como árvores extras) em várias subamostras do conjunto de dados e usa a média para melhorar a precisão preditiva e controlar o 
 "Over-fitting"
@@ -138,5 +138,11 @@ It is evident that a more random process also has its pros and cons, its positiv
 In the case of ExtraTrees, then, pre-processing becomes even more important. Where, eventually, a selection of variables is made, eliminating unwanted ones, which only add noise and do not help classify the data.
 
 ![image](https://user-images.githubusercontent.com/87387315/165319217-676398d7-7976-4ce9-b666-f0315b987f03.png)
+
+## 2.- Adaboost
+
+Um classificador AdaBoost é um meta-estimador que começa ajustando um classificador no conjunto de dados original e depois ajusta cópias adicionais do classificador no mesmo conjunto de dados, mas onde os pesos das instâncias classificadas incorretamente são ajustados para que os classificadores subsequentes se concentrem mais em casos difíceis.
+
+An AdaBoost [1] classifier is a meta-estimator that begins by fitting a classifier on the original dataset and then fits additional copies of the classifier on the same dataset but where the weights of incorrectly classified instances are adjusted such that subsequent classifiers focus more on difficult cases.
 
 
