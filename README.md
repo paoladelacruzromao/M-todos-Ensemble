@@ -77,3 +77,63 @@ Variancia e vies : https://vitalflux.com/bias-variance-concepts-interview-questi
 **BaggingClassifier.ipynb**
 
 
+## 2.- Extremely Randomized Trees (ExtraTrees)
+
+Essa classe implementa um meta estimador que ajusta várias árvores de decisão aleatórias (também conhecidas como árvores extras) em várias subamostras do conjunto de dados e usa a média para melhorar a precisão preditiva e controlar o 
+"Over-fitting"
+
+This class implements a meta estimator that fits a number of randomized decision trees (a.k.a. extra-trees) on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting.
+
+
+### Parameters : 
+n_estimators: int, default=100
+Número de árvores da floresta
+The number of trees in the forest.
+
+criterion: {“gini”, “entropy”}, default=”gini”
+A função para medir a qualidade de uma divisão. Os critérios suportados são “gini” para a impureza Gini e “entropia” para o ganho de informação.
+The function to measure the quality of a split. Supported criteria are “gini” for the Gini impurity and “entropy” for the information gain.
+
+Outros parametros:
+https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html
+
+### Beneficios do Extratress? / Extremely Randomized Trees Help
+Seu principal diferencial está no fato deste processo ser extremamente aleatório, contribuindo assim para modelos mais generalizáveis.
+Ele escolhe as variáveis e amostras randomicamente, e também o threshold para spilt dos dados de maneira randômica.
+
+Its main differential is the fact that this process is extremely random, not assimilable to more generalizable models.
+It chooses the variables and samples randomly, as well as the threshold for spilt data randomly.
+
+### ExtraTress vs RandomForest
+**Arvore de Decisão**
+
+Em primeiro lugar, vamos lembrar o que Random Forest tem de diferente das Árvores de Decisão. Quando vamos construir uma árvore de decisão, o algoritmo tenta encontrar a melhor variável para começar a construção do nó; depois ele escolhe o melhor ponto para fazer o split dos dados, o melhor ponto para separar os dados: uma parte para um lado, e outra para outro. E a partir disso, vai construindo a árvore, sempre procurando a melhor condição possível, o melhor threshold, baseado no ganho de informação ou no índice Gini.
+
+First, let's remember what makes Random Forest different from Decision Trees. When we are going to build a decision tree, the algorithm tries to find the best variable to start building the node; then he chooses the best point to split the data, the best point to separate the data: one part for one side, the other for the other. And from that, it builds the tree, always looking for the best possible condition, the best threshold, based on the information gain or the Gini index.
+
+**Random Forest**
+
+No algoritmo Random Forest algumas amostras dos dados de treino(linhas do dataset) serão selecionadas de maneira aleatória, sendo que as árvores criadas pelo algoritmo não conterão a totalidade dos dados utilizados na construção do modelo. Para definir a estrutura de cada árvore teremos a seleção aleatória de algumas variáveis, para que – dentre as selecionadas – aconteça a escolha daquela que estará no primeiro nó. Assim temos duas etapas importantes do processo acontecendo de maneira aleatória, tanto a seleção de variáveis quanto a seleção de amostras.
+
+n the Random Forest algorithm, some training data samples (dataset lines) will be randomly selected, and the trees created by the algorithm will not contain all the data used in the construction of the model. To define the structure of each tree, we will have a random selection of some variables, so that – among the selected ones – the choice of the one that will be in the first node happens. Thus, we have two important stages of the process happening randomly, both the selection of variables and the selection of samples.
+
+***ExtraTrees**
+
+Já com o ExtraTrees, esse processo se torna ainda mais aleatório, justificando o termo “extremamente” empregado em seu nome. As etapas mencionadas acima continuam existindo, e mais um fator de aleatoriedade é adicionado. Após a seleção aleatória das variáveis candidatas para o nó inicial, os dados existentes em cada uma destas variáveis serão separados (split dos dados) também de maneira aleatória. Após estas escolhas os cálculos necessários para otimização da árvore podem começar.
+
+With ExtraTrees, this process becomes even more random, justifying the term “extremely” used in its name. The steps mentioned above continue to exist, and one more randomness factor is added. After the random selection of candidate variables for the initial node, the existing data in each of these variables will be separated (data split) also randomly. After these choices, the necessary calculations for tree optimization can begin.
+
+![image](https://user-images.githubusercontent.com/87387315/165314855-77cabde7-95ee-4d5f-823d-0cb18b6435fd.png)
+
+### Cuidados com o ExtraTrees
+
+É evidente que um processo mais aleatório também tem os seus prós e contras, seu lado positivo e negativo. A parte positiva é que cria um modelo menos enviesado, conforme abordamos anteriormente; e a parte negativa é que, se por acaso, existirem muitas variáveis que não estão ajudando no nosso problema e, por consequência, não deveriam estar ali, o algoritmo poderá acabar escolhendo essas variáveis para começar os nós, dando a elas um destaque grande e indevido. Então, nesse cenário, onde se tem muitas variáveis ruins que poderiam ter sido eliminadas, o ExtraTrees pode ter uma performance pior que a do Random Forest.
+
+No caso do ExtraTrees, então, o pré-processamento ganha ainda mais importância. Onde, eventualmente, se faça uma seleção das variáveis, eliminando as indesejadas, que só acrescentam ruídos e não ajudam a classificar os dados.
+
+**ExtraTrees care**
+
+It is evident that a more random process also has its pros and cons, its positive and negative sides. The positive part is that it creates a less biased model, as we discussed earlier; and the negative part is that, if by chance, there are many variables that are not helping our problem and, therefore, shouldn't be there, the algorithm may end up choosing these variables to start the nodes, giving them a big highlight and improper. So, in this scenario, where you have a lot of bad variables that could have been eliminated, ExtraTrees may have a worse performance than Random Forest.
+
+In the case of ExtraTrees, then, pre-processing becomes even more important. Where, eventually, a selection of variables is made, eliminating unwanted ones, which only add noise and do not help classify the data.
+
