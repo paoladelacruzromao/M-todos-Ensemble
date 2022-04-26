@@ -147,12 +147,15 @@ An AdaBoost [1] classifier is a meta-estimator that begins by fitting a classifi
 
 ### Parameters : 
 base_estimator : default = None
+
 O estimador de base para treinar em subconjuntos aleatórios do conjunto de dados. Em caso de não ser especificado None, o estimador base é o DecisionTreeClassifier.
 
 The base estimator to fit on random subsets of the dataset. If None, then the base estimator is a DecisionTreeClassifier.
 
 n_estimators: int, default=50
+
 O número máximo de estimadores em que o reforço é encerrado. Em caso de ajuste perfeito, o processo de aprendizagem é interrompido precocemente.
+
 The maximum number of estimators at which boosting is terminated. In case of perfect fit, the learning procedure is stopped early.
 
 Learning Rate : float, default=1.0
