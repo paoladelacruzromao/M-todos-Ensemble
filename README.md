@@ -77,7 +77,7 @@ Variancia e vies : https://vitalflux.com/bias-variance-concepts-interview-questi
 **BaggingClassifier.ipynb**
 
 
-## 2.- Extremely Randomized Trees (ExtraTrees)
+## 2.- Bagging Extremely Randomized Trees (ExtraTrees)
 
 Essa classe implementa um meta estimador que ajusta várias árvores de decisão aleatórias (também conhecidas como árvores extras) em várias subamostras do conjunto de dados e usa a média para melhorar a precisão preditiva e controlar o 
 "Over-fitting"
