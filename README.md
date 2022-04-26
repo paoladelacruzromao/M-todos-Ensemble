@@ -145,4 +145,18 @@ Um classificador AdaBoost é um meta-estimador que começa ajustando um classifi
 
 An AdaBoost [1] classifier is a meta-estimator that begins by fitting a classifier on the original dataset and then fits additional copies of the classifier on the same dataset but where the weights of incorrectly classified instances are adjusted such that subsequent classifiers focus more on difficult cases.
 
+### Parameters : 
+base_estimator : default = None
+O estimador de base para treinar em subconjuntos aleatórios do conjunto de dados. Em caso de não ser especificado None, o estimador base é o DecisionTreeClassifier.
 
+The base estimator to fit on random subsets of the dataset. If None, then the base estimator is a DecisionTreeClassifier.
+
+n_estimators: int, default=50
+O número máximo de estimadores em que o reforço é encerrado. Em caso de ajuste perfeito, o processo de aprendizagem é interrompido precocemente.
+The maximum number of estimators at which boosting is terminated. In case of perfect fit, the learning procedure is stopped early.
+
+Learning Rate : float, default=1.0
+
+Peso aplicado a cada classificador em cada iteração de reforço. Uma taxa de aprendizado mais alta aumenta a contribuição de cada classificador. Há um trade-off entre os parâmetros learning_rate e n_estimators.
+
+Weight applied to each classifier at each boosting iteration. A higher learning rate increases the contribution of each classifier. There is a trade-off between the learning_rate and n_estimators parameters
