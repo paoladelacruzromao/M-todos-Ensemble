@@ -205,7 +205,7 @@ http://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting
 
 http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
 
----su
+```sh
 # Imports
 from sklearn.datasets import make_hastie_10_2
 from sklearn.ensemble import GradientBoostingClassifier
@@ -223,12 +223,13 @@ clf.fit(X_train, y_train)
 
 # Calcula a acurácia (score)
 clf.score(X_test, y_test)  
----
+```
 
 ### b.-Gradient Boosting Regressor
 
 http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html
 
+```sh
 # Imports
 import numpy as np
 from sklearn.metrics import mean_squared_error
@@ -248,3 +249,5 @@ est.fit(X_train, y_train)
 
 # Calcula o erro médio ao quadrado
 mean_squared_error(y_test, est.predict(X_test))    
+
+```
