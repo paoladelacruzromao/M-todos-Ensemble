@@ -164,7 +164,7 @@ Peso aplicado a cada classificador em cada iteração de reforço. Uma taxa de a
 
 Weight applied to each classifier at each boosting iteration. A higher learning rate increases the contribution of each classifier. There is a trade-off between the learning_rate and n_estimators parameters
 
-## 3.- Gradient Boosting
+## 3.- Gradient Boosting 
 
 Gradient Boosting ou Gradient Boostted Regression Trees (GBRT) é uma técnica de aprendizagem estatística não-paramétrica usada para problemas de classificação e regressão.
 Para um melhor entendimento podemos usar o seguinte material:http://deeplearningbook.com.br/aprendizado-com-a-descida-do-gradiente/
@@ -201,7 +201,11 @@ Tres etapas são realizadas na construção do modelo:
 http://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting
 
 
-### a.- Gradient Boosting Classifier:
+### a.- Gradient Boosting Classifier:(additive model ina fordward stage wish fashion)
+
+Gradient Boosting for classification.
+
+GB builds an additive model in a forward stage-wise fashion; it allows for the optimization of arbitrary differentiable loss functions. In each stage n_classes_ regression trees are fit on the negative gradient of the binomial or multinomial deviance loss function. Binary classification is a special case where only a single regression tree is induced.
 
 http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
 
@@ -226,6 +230,10 @@ clf.score(X_test, y_test)
 ```
 
 ### b.-Gradient Boosting Regressor
+
+Gradient Boosting for regression.
+
+GB builds an additive model in a forward stage-wise fashion; it allows for the optimization of arbitrary differentiable loss functions. In each stage a regression tree is fit on the negative gradient of the given loss function.
 
 http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html
 
