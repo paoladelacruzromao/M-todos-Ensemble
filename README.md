@@ -163,3 +163,88 @@ Learning Rate : float, default=1.0
 Peso aplicado a cada classificador em cada iteração de reforço. Uma taxa de aprendizado mais alta aumenta a contribuição de cada classificador. Há um trade-off entre os parâmetros learning_rate e n_estimators.
 
 Weight applied to each classifier at each boosting iteration. A higher learning rate increases the contribution of each classifier. There is a trade-off between the learning_rate and n_estimators parameters
+
+## 3.- Gradient Boosting
+
+Gradient Boosting ou Gradient Boostted Regression Trees (GBRT) é uma técnica de aprendizagem estatística não-paramétrica usada para problemas de classificação e regressão.
+Para um melhor entendimento podemos usar o seguinte material:http://deeplearningbook.com.br/aprendizado-com-a-descida-do-gradiente/
+
+Gradient Boosting = Gradient Descent + Boosting.
+
+Tres etapas são realizadas na construção do modelo:
+
+1- Gera um regressor: O gradient boostinfg sempre vai criar um regressor independente do modelo ser classificador ou uma regressão
+
+2- Computa o erro residual: Os residuos são os erros do modelo valor observado - valor previsto
+
+3- Aprende a prever o resíduo: Aprendendo a prever o residuo o modelo vai ter um nivel de presição maior. Pois vai encontrar a melhor função alvo, reducindo os residuos.
+
+### Como funciona o Gradient Boosting:
+
+1 - Realiza um conjunto de previsões (y)
+
+2- Calcula o erro das previsões (j)
+
+3- Tenta ajustar y reduzindo o erro (através de alpha (taxa de aprendizado))
+
+4- Para cada estimador base, é estimado o gradiente da função de perda
+
+5- Estimadores subsequentes estimam o erro residual dos estimadores anteriores, lembra no bagging estimamos a media no boosting pegamos a saida do estimador base aprendiendo dos erros passados
+
+6- Aplica o Gradient Descent para reduzir j
+
+7- Soma os resultados dos estimadores, dando peso a cada passo de acordo com o valor de alfa (alfa vai ser um hiperparametro)
+
+
+7- Soma os resultados dos estimadores, dando peso a cada passo de acordo com o valor de alfa
+
+http://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting
+
+
+### a.- Gradient Boosting Classifier:
+
+http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
+
+---su
+# Imports
+from sklearn.datasets import make_hastie_10_2
+from sklearn.ensemble import GradientBoostingClassifier
+
+# Define dados para x e y
+X, y = make_hastie_10_2(random_state = 0)
+X_train, X_test = X[:2000], X[2000:]
+y_train, y_test = y[:2000], y[2000:]
+
+# Cria o classificador
+clf = GradientBoostingClassifier(n_estimators = 100, learning_rate = 1.0, random_state = 0)
+
+# Treina o classificador
+clf.fit(X_train, y_train)
+
+# Calcula a acurácia (score)
+clf.score(X_test, y_test)  
+---
+
+### b.-Gradient Boosting Regressor
+
+http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html
+
+# Imports
+import numpy as np
+from sklearn.metrics import mean_squared_error
+from sklearn.datasets import make_friedman1
+from sklearn.ensemble import GradientBoostingRegressor
+
+# Define dados para x e y
+X, y = make_friedman1(n_samples = 1200, random_state = 0, noise = 1.0)
+X_train, X_test = X[:200], X[200:]
+y_train, y_test = y[:200], y[200:]
+
+# Cria o regressor
+est = GradientBoostingRegressor(n_estimators = 100, learning_rate = 0.1, max_depth = 1, random_state = 0, loss = 'ls')
+
+# Treina o regressor
+est.fit(X_train, y_train)
+
+# Calcula o erro médio ao quadrado
+mean_squared_error(y_test, est.predict(X_test))    
