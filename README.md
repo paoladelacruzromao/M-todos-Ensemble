@@ -259,3 +259,6 @@ est.fit(X_train, y_train)
 mean_squared_error(y_test, est.predict(X_test))    
 
 ```
+### Binomial emsembled Question
+
+![image](https://user-images.githubusercontent.com/87387315/167133657-50e7f414-ec7c-4e8c-8360-cf32218a2c7e.png)
